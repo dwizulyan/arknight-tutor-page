@@ -1,7 +1,8 @@
+import GuideList from "./components/guide-list/GuideList";
 const Home: React.FC = () => {
   return (
     <div className="w-full h-screen">
-      <h1>Home</h1>
+      <GuideList />
     </div>
   );
 };

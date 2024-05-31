@@ -9,5 +9,20 @@
     .fira{
         font-family:"Fira Code Variable";
     }
-    
+    .guidebox::after{
+        content:"";
+        width:100%;
+        height:100%;
+        display: block;
+        position: absolute;
+        z-index: -9;
+        left:0;
+        top:0;
+        background:rgba(0,0,0,0);
+        transition:all ease-in-out .2s;
+    }
+    .guidebox:hover::after{
+        
+        background:rgba(0,0,0,.5);
+    }
 }

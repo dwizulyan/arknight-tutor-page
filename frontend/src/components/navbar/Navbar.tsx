@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-base-100 fixed top-0 left-0 px-10">
+    <div className="navbar bg-base-100 fixed top-0 left-0 px-10 z-[99999]">
       <div className="flex-1">
         <a className="text-xl fira font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
           arknight-tutor-page
