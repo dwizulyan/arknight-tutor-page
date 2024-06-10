@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    
+    *{
+        border-radius: 0 !important;
+    }
     html {
         font-family:"Montserrat";
     }
@@ -11,18 +15,33 @@
     }
     .guidebox::after{
         content:"";
-        width:100%;
+        width:85%;
         height:100%;
         display: block;
         position: absolute;
         z-index: -9;
-        left:0;
+        left:15%;
         top:0;
         background:rgba(0,0,0,0);
         transition:all ease-in-out .2s;
     }
     .guidebox:hover::after{
         
-        background:rgba(0,0,0,.5);
+        background:linear-gradient(to right, rgb(159, 232, 141), rgba(159, 232, 141,.3));
+    }
+    .guidebox::before {
+        content:"";
+        width:15%;
+        height:100%;
+        display:block;
+        position:absolute;
+        z-index:-9;
+       
+        top:0;
+        left:-100%;
+        background:#9FE88D;
+    }
+    .guidebox:hover::before {
+left:0;
     }
 }

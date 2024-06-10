@@ -1,65 +1,35 @@
 import { NavLink } from "react-router-dom";
+import React from "react";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-base-100 fixed top-0 left-0 px-10 z-[99999]">
-      <div className="flex-1">
-        <a className="text-xl fira font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-          arknight-tutor-page
-        </a>
+    <nav className="w-full h-16 fixed left-0 top-0  z-[99999] bg-base-100 flex items-center px-10 justify-between">
+      <h1 className="fira font-bold text-primary-content px-1 bg-primary">
+        arkpage-tutor
+      </h1>
+
+      <div className="flex gap-5">
+        <LinkItem title="Home" url="/" />
+        <LinkItem title="Guides" url="/guide" />
       </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-primary" : ""
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <details>
-              <summary>Guide</summary>
-              <ul className="p-2 bg-base-100 rounded-t-none">
-                <li>
-                  <NavLink
-                    to="/guide/stages"
-                    className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-primary" : ""
-                    }
-                  >
-                    Stages
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/guide/operator"
-                    className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-primary" : ""
-                    }
-                  >
-                    Operator
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/guide/Squad"
-                    className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-primary" : ""
-                    }
-                  >
-                    Messages
-                  </NavLink>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </nav>
+  );
+};
+
+const LinkItem: React.FC<{ title: string; url: string }> = ({ title, url }) => {
+  return (
+    <NavLink
+      to={url}
+      className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? "btn btn-primary btn-sm"
+          : "btn btn-ghost btn-sm"
+      }
+    >
+      {title}
+    </NavLink>
   );
 };
 export default Navbar;

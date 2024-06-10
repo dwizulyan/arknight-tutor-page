@@ -4,7 +4,7 @@ const GuideList: React.FC = () => {
   return (
     <div>
       <h1 className="text-primary text-4xl font-bold">Guides</h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5 mt-3">
         <GuideBox
           img="/assets/texalter.webp"
           title={"Operator Guides"}

@@ -11,6 +11,7 @@ import Stages from "./routes/guide/stages/Stages.tsx";
 import Operator from "./routes/guide/operator/Operator.tsx";
 import Squad from "./routes/guide/squad/Squad.tsx";
 import ErrorPage from "./utils/ErrorPage.tsx";
+import ViewStages from "./routes/guide/view/stages/ViewStages.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/guide/stages",
         element: <Stages />,
+      },
+      {
+        path: "/guide/stages/view",
+        element: <ViewStages />,
       },
       {
         path: "/guide/operator",
