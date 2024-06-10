@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Stage {
+  id Int @id @default(autoincrement())
+  code String?
+  title String?
+  mode Mode[]
+  chapter Chapter @relation(fields: [chapterId], references: [id])
+  chapterId Int
+}
+model Mode {
+  id Int @id @default(autoincrement())
+  mode String?
+  stageId Int
+  stage Stage @relation(fields: [stageId], references: [id])
+  rewards Drops?
+  conditions Condition?
+}
+
+model Condition{
+  id Int @id @default(autoincrement())
+  modeId Int @unique
+  mode Mode @relation(fields: [modeId], references: [id])
+  description String[]
+}
+
+model Drops{
+  id Int @id @default(autoincrement())
+  modeId Int @unique
+  mode Mode @relation(fields: [modeId], references: [id])
+  items Item[]
+}
+model Item{
+  id Int @id @default(autoincrement())
+  dropId Int
+  drop Drops @relation(fields: [dropId], references: [id])
+  itemName String?
+  rarity String?
+  type String?
+}
+
+model Chapter {
+  id Int @id @default(autoincrement())
+  title String?
+  cover String?
+  stages Stage[]
+}
